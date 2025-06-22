@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔥 COMBO TRÍPLICE DO PODER</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #e0e0e0;
+            background: #0c0c0c;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: 
+                linear-gradient(135deg, #1a1a1a 0%, #2d1b3d 30%, #2a1a1a 70%, #0f0f0f 100%),
+                radial-gradient(circle at 30% 70%, rgba(200, 50, 50, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 70% 30%, rgba(150, 30, 30, 0.12) 0%, transparent 50%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="web" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 0 10 L 20 10 M 10 0 L 10 20" stroke="rgba(255,0,0,0.1)" stroke-width="0.5" fill="none"/></pattern></defs><rect width="100" height="100" fill="url(%23web)"/></svg>');
+            animation: drift 30s linear infinite;
+            opacity: 0.4;
+        }
+
+        @keyframes drift {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-20px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: #e0e0e0;
+            text-align: center;
+        }
+
+        .forbidden-badge {
+            background: linear-gradient(45deg, #dc3545, #c82333, #dc3545);
+            background-size: 200% 200%;
+            color: #fff;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 800;
+            display: inline-block;
+            margin-bottom: 25px;
+            border: 2px solid rgba(220, 53, 69, 0.6);
+            box-shadow: 0 0 25px rgba(220, 53, 69, 0.3);
+            animation: glow 2s ease-in-out infinite alternate, pulse 3s ease-in-out infinite;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        @keyframes glow {
+            0% { box-shadow: 0 0 25px rgba(220, 53, 69, 0.3); }
+            100% { box-shadow: 0 0 35px rgba(220, 53, 69, 0.5); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .hero h1 {
+            font-size: clamp(2.2rem, 5.5vw, 3.8rem);
+            font-weight: 900;
+            margin-bottom: 2rem;
+            text-shadow: 3px 3px 15px rgba(0,0,0,0.9);
+            color: #dc3545;
+            line-height: 1.1;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 2.8vw, 1.5rem);
+            margin-bottom: 3rem;
+            opacity: 0.95;
+            line-height: 1.4;
+            color: #cccccc;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 500;
+        }
+
+        .urgency-text {
+            background: rgba(220, 53, 69, 0.1);
+            border: 2px solid #dc3545;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 30px 0;
+            font-size: 1.1rem;
+            color: #e74c3c;
+            font-weight: 600;
+            animation: urgentGlow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes urgentGlow {
+            0% { border-color: #dc3545; background: rgba(220, 53, 69, 0.1); }
+            100% { border-color: #e74c3c; background: rgba(220, 53, 69, 0.15); }
+        }
+
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
+            margin: 60px 0;
+        }
+
+        .book-card {
+            background: 
+                linear-gradient(145deg, rgba(25,5,5,0.95), rgba(50,15,15,0.7)),
+                radial-gradient(circle at top right, rgba(255,0,0,0.15), transparent);
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(255, 0, 0, 0.4);
+            border-radius: 25px;
+            padding: 35px;
+            text-align: left;
+            transition: all 0.5s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .book-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,0,0,0.2), transparent);
+            transition: left 0.8s ease;
+        }
+
+        .book-card:hover::before {
+            left: 100%;
+        }
+
+        .book-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            border-color: rgba(255, 0, 0, 0.8);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5), 0 0 40px rgba(255,0,0,0.3);
+        }
+
+        .book-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .book-emoji {
+            font-size: 3rem;
+            margin-right: 20px;
+            filter: drop-shadow(3px 3px 6px rgba(0,0,0,0.7));
+        }
+
+        .book-title {
+            font-size: 1.4rem;
+            font-weight: 900;
+            color: #dc3545;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .book-subtitle {
+            font-size: 1rem;
+            color: #cc6666;
+            margin-top: 8px;
+            font-style: italic;
+            font-weight: 600;
+        }
+
+        .book-benefits {
+            list-style: none;
+            margin-top: 25px;
+        }
+
+        .book-benefits li {
+            margin: 15px 0;
+            padding-left: 25px;
+            position: relative;
+            font-size: 1rem;
+            line-height: 1.5;
+            color: #d0d0d0;
+            font-weight: 500;
+        }
+
+        .book-benefits li::before {
+            content: '🔥';
+            position: absolute;
+            left: 0;
+            font-size: 1rem;
+        }
+
+        .timer {
+            background: rgba(220, 53, 69, 0.15);
+            border: 3px solid #dc3545;
+            border-radius: 25px;
+            padding: 30px;
+            margin: 40px 0;
+            text-align: center;
+            box-shadow: 0 0 30px rgba(220, 53, 69, 0.2);
+            animation: timerPulse 1.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes timerPulse {
+            0% { border-color: #dc3545; box-shadow: 0 0 30px rgba(220, 53, 69, 0.2); }
+            100% { border-color: #e74c3c; box-shadow: 0 0 40px rgba(220, 53, 69, 0.35); }
+        }
+
+        .timer h3 {
+            color: #ff6666;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .timer-display {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: #dc3545;
+            margin: 20px 0;
+            font-family: 'Monaco', 'Courier New', monospace;
+            text-shadow: 0 0 15px rgba(220, 53, 69, 0.6);
+            letter-spacing: 3px;
+        }
+
+        .timer-warning {
+            color: #ff6666;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-top: 15px;
+        }
+
+        .price-section {
+            background: 
+                linear-gradient(145deg, rgba(20,5,5,0.98), rgba(40,10,10,0.9));
+            border-radius: 30px;
+            padding: 50px;
+            margin: 60px 0;
+            text-align: center;
+            border: 3px solid rgba(255, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .price-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: 
+                conic-gradient(from 0deg, transparent, rgba(255,0,0,0.1), transparent, rgba(255,0,0,0.15), transparent);
+            animation: rotate 15s linear infinite;
+        }
+
+        @keyframes rotate {
+            100% { transform: rotate(360deg); }
+        }
+
+        .price-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .price-old {
+            font-size: 1.6rem;
+            text-decoration: line-through;
+            opacity: 0.7;
+            margin-bottom: 15px;
+            color: #999;
+            font-weight: 600;
+        }
+
+        .price-new {
+            font-size: 4rem;
+            font-weight: 900;
+            color: #dc3545;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 10px rgba(0,0,0,0.7);
+            letter-spacing: 2px;
+        }
+
+        .savings {
+            background: linear-gradient(45deg, #dc3545, #c82333, #dc3545);
+            background-size: 200% 200%;
+            animation: shimmer 2s ease-in-out infinite;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 30px;
+            font-weight: 800;
+            display: inline-block;
+            margin-bottom: 30px;
+            font-size: 1.2rem;
+            border: 2px solid rgba(220, 53, 69, 0.6);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .guarantee {
+            background: rgba(25,5,5,0.9);
+            border-radius: 25px;
+            padding: 35px;
+            margin: 50px 0;
+            border-left: 5px solid #ff0000;
+            border-right: 5px solid #ff0000;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .final-warning {
+            background: 
+                linear-gradient(145deg, rgba(255,0,0,0.15), rgba(139,0,0,0.2));
+            border: 2px solid rgba(255,0,0,0.4);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 40px 0;
+            text-align: center;
+            font-style: italic;
+            box-shadow: 0 0 25px rgba(255,0,0,0.2);
+        }
+
+        .social-proof {
+            background: rgba(20,5,5,0.8);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 40px 0;
+            border: 1px solid rgba(255,0,0,0.3);
+        }
+
+        .testimonial {
+            margin: 20px 0;
+            padding: 20px;
+            background: rgba(255,0,0,0.05);
+            border-radius: 15px;
+            border-left: 3px solid #ff0000;
+        }
+
+        /* Estilos para botões Cakto - Integração perfeita com o design */
+        .cakto-buttons-container {
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        /* Personalização do CSS dos botões da Cakto */
+        cakto-upsell-accept::part(button) {
+            background: linear-gradient(45deg, #dc3545, #c82333, #dc3545) !important;
+            background-size: 200% 200% !important;
+            color: white !important;
+            padding: 25px 50px !important;
+            font-size: 1.4rem !important;
+            font-weight: 900 !important;
+            border: none !important;
+            border-radius: 50px !important;
+            cursor: pointer !important;
+            text-decoration: none !important;
+            display: inline-block !important;
+            margin: 25px 0 !important;
+            transition: all 0.4s ease !important;
+            text-transform: uppercase !important;
+            letter-spacing: 2px !important;
+            box-shadow: 
+                0 15px 35px rgba(220, 53, 69, 0.4),
+                inset 0 2px 0 rgba(255,255,255,0.2) !important;
+            position: relative !important;
+            overflow: hidden !important;
+            border: 2px solid rgba(220, 53, 69, 0.7) !important;
+            width: auto !important;
+            min-width: 350px !important;
+            animation: buttonGlow 2s ease-in-out infinite alternate !important;
+        }
+
+        @keyframes buttonGlow {
+            0% { box-shadow: 0 15px 35px rgba(220, 53, 69, 0.4), inset 0 2px 0 rgba(255,255,255,0.2); }
+            100% { box-shadow: 0 20px 45px rgba(220, 53, 69, 0.6), inset 0 2px 0 rgba(255,255,255,0.3); }
+        }
+
+        cakto-upsell-accept::part(button):hover {
+            transform: translateY(-5px) scale(1.05) !important;
+            background-position: 100% 0 !important;
+            box-shadow: 
+                0 25px 60px rgba(220, 53, 69, 0.7),
+                inset 0 2px 0 rgba(255,255,255,0.4) !important;
+            animation: none !important;
+        }
+
+        cakto-upsell-reject::part(button) {
+            background: transparent !important;
+            color: #777 !important;
+            padding: 12px 25px !important;
+            font-size: 0.9rem !important;
+            font-weight: 500 !important;
+            border: 1px solid #444 !important;
+            border-radius: 25px !important;
+            cursor: pointer !important;
+            text-decoration: none !important;
+            display: inline-block !important;
+            margin: 15px 0 !important;
+            transition: all 0.3s ease !important;
+            text-transform: none !important;
+            letter-spacing: 0.5px !important;
+            opacity: 0.8 !important;
+        }
+
+        cakto-upsell-reject::part(button):hover {
+            background: rgba(220, 53, 69, 0.1) !important;
+            color: #e74c3c !important;
+            border-color: #dc3545 !important;
+            transform: scale(0.98) !important;
+            opacity: 1 !important;
+        }
+
+        @media (max-width: 768px) {
+            .books-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            
+            .book-card {
+                padding: 30px;
+            }
+            
+            .price-new {
+                font-size: 3rem;
+            }
+            
+            .timer-display {
+                font-size: 2.8rem;
+            }
+
+            cakto-upsell-accept::part(button) {
+                padding: 20px 35px !important;
+                font-size: 1.2rem !important;
+                min-width: 300px !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="forbidden-badge">🔥 COMBO TRÍPLICE DO PODER</div>
+                
+                <h1>🚨 PARE TUDO! 🚨<br>Esta é sua ÚLTIMA CHANCE!</h1>
+                
+                <p class="hero-subtitle">
+                    Você acabou de adquirir <strong>"As 48 Leis do Poder"</strong>, mas isso é apenas o <strong>COMEÇO</strong>...<br>
+                    Não posso deixar você partir sem o <strong>ARSENAL COMPLETO</strong> que transformará você no dominador definitivo que sempre deveria ter sido.
+                </p>
+
+                <div class="urgency-text">
+                    <strong>⚠️ ATENÇÃO:</strong> Esta página só aparece UMA VEZ para quem já possui "As 48 Leis do Poder". Se você sair agora, perderá para sempre a chance de completar o arsenal de dominação mental que separará você dos 99% que continuarão sendo manipulados para sempre.
+                </div>
+
+                <div class="timer">
+                    <h3>⏰ TEMPO ESGOTANDO - DECIDE AGORA:</h3>
+                    <div class="timer-display" id="countdown">14:59</div>
+                    <p class="timer-warning">Quando chegar a zero, você voltará a ser apenas mais um na multidão...</p>
+                </div>
+
+                <div class="books-grid">
+                    <div class="book-card">
+                        <div class="book-header">
+                            <span class="book-emoji">👿</span>
+                            <div>
+                                <div class="book-title">"MAIS ESPERTO QUE O DIABO"</div>
+                                <div class="book-subtitle">Domine Sua Mente</div>
+                            </div>
+                        </div>
+                        <ul class="book-benefits">
+                            <li>Como vencer seus medos e autossabotagem</li>
+                            <li>Técnicas para quebrar padrões limitantes</li>
+                            <li>Domínio mental absoluto sobre si mesmo</li>
+                            <li>Estratégias para superar qualquer obstáculo</li>
+                        </ul>
+                    </div>
+
+                    <div class="book-card">
+                        <div class="book-header">
+                            <span class="book-emoji">💔</span>
+                            <div>
+                                <div class="book-title">"A ARTE DA SEDUÇÃO"</div>
+                                <div class="book-subtitle">Controle Total</div>
+                            </div>
+                        </div>
+                        <ul class="book-benefits">
+                            <li>Domine qualquer pessoa através da sedução</li>
+                            <li>Técnicas psicológicas de atração irresistível</li>
+                            <li>Como fazer qualquer um se apaixonar por você</li>
+                            <li>Manipulação emocional refinada e elegante</li>
+                        </ul>
+                    </div>
+
+                    <div class="book-card">
+                        <div class="book-header">
+                            <span class="book-emoji">⚔️</span>
+                            <div>
+                                <div class="book-title">"33 ESTRATÉGIAS DE GUERRA"</div>
+                                <div class="book-subtitle">Vitória Garantida</div>
+                            </div>
+                        </div>
+                        <ul class="book-benefits">
+                            <li>Táticas militares aplicadas aos negócios</li>
+                            <li>Como destruir competidores estrategicamente</li>
+                            <li>Guerra psicológica em relacionamentos</li>
+                            <li>Estratégias de conquista e dominação total</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="social-proof">
+                    <h3 style="color: #ff4444; margin-bottom: 25px; text-align: center;">💬 O que dizem os que já dominam:</h3>
+                    
+                    <div class="testimonial">
+                        <p><em>"Antes, eu sempre me sentia um passo atrás. Em reuniões, em negociações... parecia que os outros tinham uma vantagem que eu não conseguia entender. Depois que aprendi essas técnicas, nunca mais fui passado pra trás. Hoje eu tomo decisões com mais clareza, confiança e presença."</em></p>
+                        <strong>- Carlos Araújo (Empresário)</strong>
+                    </div>
+                    
+                    <div class="testimonial">
+                        <p><em>"Minha ex me manipulava emocionalmente há anos, e eu nem percebia. Vivia tentando agradar, buscando aprovação, me sentindo pequeno. Quando entendi como funciona a comunicação e a influência, tudo mudou. Hoje eu me posiciono com firmeza — e finalmente tenho controle sobre minha vida."</em></p>
+                        <strong>- Eduardo Oliveira (Advogado)</strong>
+                    </div>
+                </div>
+
+                <div class="price-section">
+                    <div class="price-content">
+                        <h2 style="color: #ff4444; margin-bottom: 30px; font-size: 2rem;">🎯 COMBO TRÍPLICE DO PODER</h2>
+                        
+                        <div class="price-old">Valor Separado: R$ 89,70</div>
+                        <div class="price-new">R$ 29,90</div>
+                        <div class="savings">🔥 ECONOMIA BRUTAL DE R$ 59,80</div>
+                        
+                        <p style="margin: 20px 0; font-size: 1.1rem; color: #cccccc;">
+                            <strong>Complete seu arsenal com os 3 livros fundamentais:</strong> <br>
+                            👿 Mais Esperto que o Diabo + 💔 A Arte da Sedução + ⚔️ 33 Estratégias de Guerra<br>
+                            <strong>Junto com "As 48 Leis do Poder"</strong> que você já possui, você terá o <strong>QUARTETO DEFINITIVO</strong> da dominação total.
+                        </p>
+                        
+                        <!-- Botões da Cakto Integrados -->
+                        <div class="cakto-buttons-container">
+                            <cakto-upsell-buttons>
+                                <cakto-upsell-accept 
+                                    bg-color="#520a0aff" 
+                                    text-color="#ffffff" 
+                                    upsell-accept-url="https://dxxdu09.github.io/Combo-Maquiavelico/" 
+                                    offer-id="3fgv5qt" 
+                                    app-base-url="https://app.cakto.com.br" 
+                                    offer-type="upsell" 
+                                    upsell-reject-url="https://dxxdu09.github.io/Ultima-Chance/">
+                                    🚀 SIM, QUERO COMPLETAR MEU ARSENAL
+                                </cakto-upsell-accept>
+                                
+                                <br><br>
+                                
+                                <cakto-upsell-reject upsell-reject-url="https://dxxdu09.github.io/Ultima-Chance/">
+                                    Não, prefiro ser uma marionete msm...
+                                </cakto-upsell-reject>
+                            </cakto-upsell-buttons>
+                        </div>
+                        
+                        <div style="font-size: 0.9rem; opacity: 0.7; margin-top: 15px; color: #888;">
+                            💳 Parcelamento em até 4x sem juros
+                        </div>
+                    </div>
+                </div>
+
+                <div class="guarantee">
+                    <h4 style="color: #dc3545; margin-bottom: 20px; font-size: 1.3rem;">🛡️ GARANTIA INCONDICIONAL - 7 DIAS</h4>
+                    <p style="font-size: 1.1rem;">Se você não se tornar visivelmente mais poderoso e influente em 7 dias, devolvemos todo seu dinheiro. Mas sabemos que uma vez que você prove o gosto do controle absoluto, não haverá volta. Você se tornará viciado no poder.</p>
+                </div>
+
+                <div class="final-warning">
+                    <h4 style="color: #ff6666; margin-bottom: 20px; font-size: 1.2rem;">⚠️ DECISÃO IRREVERSÍVEL</h4>
+                    <p style="font-size: 1.1rem;">
+                        Esta janela de oportunidade se fecha em minutos. Depois disso, você voltará a ter apenas "As 48 Leis do Poder" - poderoso, mas incompleto. 
+                        <br><br>
+                        <strong>A escolha é sua:</strong> Ficar com conhecimento parcial ou dominar completamente o jogo do poder?
+                    </p>
+                </div>
+
+                <!-- Botões da Cakto Repetidos no Final -->
+                <div class="cakto-buttons-container">
+                    <cakto-upsell-buttons>
+                        <cakto-upsell-accept 
+                            bg-color="#520a0aff" 
+                            text-color="#ffffff" 
+                            upsell-accept-url="https://dxxdu09.github.io/Combo-Maquiavelico/" 
+                            offer-id="3fgv5qt" 
+                            app-base-url="https://app.cakto.com.br" 
+                            offer-type="upsell" 
+                            upsell-reject-url="https://dxxdu09.github.io/Ultima-Chance/">
+                            🔥 COMPLETAR MEU ARSENAL DE DOMINAÇÃO
+                        </cakto-upsell-accept>
+                        
+                        <br><br>
+                        
+                        <cakto-upsell-reject upsell-reject-url="https://dxxdu09.github.io/Ultima-Chance/">
+                            Não, vou continuar sendo manipulado msm...
+                        </cakto-upsell-reject>
+                    </cakto-upsell-buttons>
+                </div>
+
+                <div style="margin-top: 40px; opacity: 0.6; font-size: 0.85rem; color: #666;">
+                    🔒 Compra 100% segura e criptografada • Acesso imediato após pagamento
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Script da Cakto -->
+    <script type="text/javascript" src="https://caktoscripts.nyc3.cdn.digitaloceanspaces.com/upsell.js"></script>
+
+    <script>
+        // Countdown timer que funciona corretamente
+        let timeLeft = 14 * 60 + 59; // 14 minutos e 59 segundos
+        
+        function updateTimer() {
+            const display = document.getElementById('countdown');
+            const minutes = Math.floor(timeLeft / 60);
+            const seconds = timeLeft % 60;
+            
+            display.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            
+            if (timeLeft <= 0) {
+                display.textContent = "EXPIROU!";
+                display.style.color = "#ff0000";
+                display.style.fontSize = "2.5rem";
+                display.style.animation = "none";
+                
+                // Opcional: redirecionar automaticamente quando expirar
+                // setTimeout(() => {
+                //     window.location.href = "https://dxxdu09.github.io/Ultima-Chance/";
+                // }, 2000);
+                return;
+            }
+            
+            timeLeft--;
+        }
+        
+        // Iniciar o timer
+        updateTimer();
+        setInterval(updateTimer, 1000);
+        
+        // Efeitos visuais adicionais
+        document.addEventListener('DOMContentLoaded', function() {
+            // Adicionar efeito de parallax sutil nos cards
+            const cards = document.querySelectorAll('.book-card');
+            
+            document.addEventListener('mousemove', function(e) {
+                const mouseX = e.clientX / window.innerWidth;
+                const mouseY = e.clientY / window.innerHeight;
+                
+                cards.forEach((card, index) => {
+                    const speed = (index + 1) * 0.5;
+                    const x = (mouseX - 0.5) * speed;
+                    const y = (mouseY - 0.5) * speed;
+                    
+                    card.style.transform = `translate(${x}px, ${y}px)`;
+                });
+            });
+            
+            // Animação de entrada para os elementos
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationDelay = '0.3s';
+                        entry.target.style.animation = 'fadeInUp 0.8s ease forwards';
+                    }
+                });
+            });
+            
+            // Observar elementos para animação
+            document.querySelectorAll('.book-card, .testimonial, .price-section').forEach(el => {
+                observer.observe(el);
+            });
+        });
+        
+        // CSS adicional para animações
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            
+            .book-card, .testimonial, .price-section {
+                opacity: 0;
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
